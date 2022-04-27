@@ -1,7 +1,10 @@
 const homeController = () => {
     return {
         home: (req, res) => {
-            res.send('This is by using controller')
+            res.redirect('/signup');
+        },
+        signup: (req, res) => {
+            res.send('This is signup route');
         }
     }
 };
