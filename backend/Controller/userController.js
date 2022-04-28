@@ -13,8 +13,14 @@ const userController = () => {
                     email: req.body.email,
                     password: req.body.password
                 });
-                const registeredUserData = await user.save();
-                res.status(200).json({success:true,message:registeredUserData});
+                res.redirect('/user/verify');
+            } catch (error) {
+                res.status(500).json({success:false,message:error});
+            }
+        },
+        login:async (req,res)=>{
+            try {
+                
             } catch (error) {
                 res.status(500).json({success:false,message:error});
             }
