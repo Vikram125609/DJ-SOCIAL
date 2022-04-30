@@ -5,7 +5,7 @@ const userController = () => {
         signup: (req, res) => {
             res.send('FIRST YOU NEED TO REGISTER YOURSELF');
         },
-        register: async (req, res) => {
+        postsignup: async (req, res) => {
             try {
                 const user = new userModel({
                     firstname: req.body.firstname,
@@ -48,8 +48,20 @@ const userController = () => {
                 res.status(500).json({ success: false, message: error });
             }
         },
-        login: async (req, res) => {
-
+        signin: (req, res) => {
+            res.send(`This is the signin wala page`);
+        },
+        postsignin: async (req, res) => {
+            const email = req.body.email;
+            const user = await userModel.findOne({ email: email });
+            if (user) 
+            {
+                res.status(200).json({ success: true, message: user });
+            }
+            else
+            {
+                res.status(400).json({success:false,message:`User Does Not Exist`});
+            }
         }
     }
 };

@@ -7,16 +7,13 @@ const verifyController = () => {
         postverify: async (req, res) => {
             const OTP = require('./userController').OTP;
             const user = require('./userController').user;
-            flag = false;
             if (parseInt(req.body.OTP) == parseInt(OTP)) {
                 await user.save();
+                res.status(200).json({ success: true, message: `User Registered Successfully` });
             }
             else {
                 flag = true;
                 res.status(400).json({ success: false, message: `Invalid OTP` });
-            }
-            if (flag == false) {
-                res.status(200).json({ success: true, message: `User Registered Successfully` });
             }
         }
     }
