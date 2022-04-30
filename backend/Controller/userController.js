@@ -1,7 +1,7 @@
 const userModel = require('../src/Models/userModel');
 const userController = () => {
     return {
-        singup: (req, res) => {
+        signup: (req, res) => {
             res.send('FIRST YOU NEED TO REGISTER YOURSELF');
         },
         register: async (req, res) => {
@@ -13,6 +13,9 @@ const userController = () => {
                     email: req.body.email,
                     password: req.body.password
                 });
+                let OTP = Math.random() * 1000001;
+                OTP = Math.ceil(OTP);
+                module.exports.OTP =  OTP;
                 res.redirect('/user/verify');
             } catch (error) {
                 res.status(500).json({success:false,message:error});
