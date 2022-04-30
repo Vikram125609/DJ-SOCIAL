@@ -7,4 +7,5 @@ router.get('/',homeController().home);
 router.get('/signup',userController().signup);
 router.post('/signup',userController().register);
 router.get('/verify',verifyController().verify);
+router.post('/verify',verifyController().postverify);
 module.exports = router;
