@@ -78,7 +78,7 @@ const userController = () => {
         },
         // Here I am updating the user data
         update: async (req, res) => {
-            // Here I am getting the password from the user as a parameter
+            // Here I am getting the password from the user as a parameter I mean in the URL
             try {
                 let _id = req.params.id;
                 console.log(_id);
@@ -86,6 +86,7 @@ const userController = () => {
                 console.log(password);
                 const userData = await userModel.findById(_id);
                 if (userData.password == password) {
+                    // And the password which is send as the data by the user it will be used for update the password
                     const user = await userModel.findByIdAndUpdate(_id, req.body);
                     res.status(200).json({ success: true, message: `User Data Updated Successfully` });
                 }
@@ -95,6 +96,9 @@ const userController = () => {
             } catch (error) {
                 res.status(500).json({ success: false, message: error });
             }
+        },
+        follow: async (req, res) => {
+            
         }
     }
 };

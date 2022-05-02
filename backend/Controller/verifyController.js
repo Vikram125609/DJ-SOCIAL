@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const verifyController = () => {
     return {
         verify: (req, res) => {
-            res.send(`This is the getverify controller`);
+            res.send(`This is the get verify controller`);
         },
         postverify: async (req, res) => {
             const OTP = require('./userController').OTP;

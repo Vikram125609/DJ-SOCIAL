@@ -12,4 +12,6 @@ router.get('/signin',userController().signin);
 router.post('/signin',userController().postsignin);
 router.put('/update/:id/:password',userController().update);
 router.get('/:id',userController().user);
+// The below request is used to follow the user
+router.put('/follow/:id',userController().follow)
 module.exports = router;

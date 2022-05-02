@@ -19,6 +19,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    views: {
+        type: Number,
+        default: 0
+    },
+    followers: {
+        type: [String],
+        default: []
     }
 }, { timestamps: true });
 const userModel = mongoose.model('user', userSchema);
