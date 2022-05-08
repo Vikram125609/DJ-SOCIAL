@@ -98,6 +98,7 @@ const userController = () => {
             }
         },
         follow: async (req, res) => {
+            const user = req.params.id;
             
         }
     }
